@@ -1,32 +1,55 @@
 import 'dart:convert';
-import 'dart:ffi';
+//import 'dart:ffi';
 import 'package:http/http.dart' as http;
 import '../utils/apiBack.dart';
 import '../models/loginModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  Future<LoginResponse> login(String email, String password) async {
-    final url = Uri.parse('$apiBackC/login');
-    final response = await http.post(
-      url,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'email': email,
-        'password': password,
-      }),
-    );
+  Future<bool> login(String login, String password) async {
+    final url = Uri.parse('http://190.171.244.211:8080/wsVarios/wsAd.asmx');
+    final soapEnvelope = '''
+    <?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+      <soap:Body>
+        <tem:ValidarLoginPassword>
+          <tem:login>$login</tem:login>
+          <tem:password>$password</tem:password>
+        </tem:ValidarLoginPassword>
+      </soap:Body>
+    </soap:Envelope>
+    ''';
 
-    if (response.statusCode == 200) {
-      print("Respuesta del login: ${response.body}");
-      final userData = json.decode(response.body);
-      await saveUserData(userData);
-      return LoginResponse.fromJson(userData);
-    } else {
-      throw Exception('Failed to login');
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'text/xml; charset=utf-8',
+          'SOAPAction': 'http://tempuri.org/ValidarLoginPassword',
+        },
+        body: soapEnvelope,
+      );
+
+      if (response.statusCode == 200) {
+        // Parsear la respuesta SOAP
+        final responseBody = response.body;
+        print("Respuesta del servidor: $responseBody");
+
+        // Extraer datos relevantes de la respuesta XML
+        if (responseBody.contains('<ValidarLoginPasswordResult>true</ValidarLoginPasswordResult>')) {
+          return true; // Login exitoso
+        } else {
+          return false; // Login fallido
+        }
+      } else {
+        print('Error en el servidor: ${response.statusCode}');
+        throw Exception('Error en el servidor');
+      }
+    } catch (e) {
+      print('Error durante la autenticación: $e');
+      throw Exception('Error en la autenticación');
     }
+  
   }
 
   Future<void> saveUserData(Map<String, dynamic> userData) async {

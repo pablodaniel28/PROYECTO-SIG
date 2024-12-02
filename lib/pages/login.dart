@@ -10,16 +10,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _loginController = TextEditingController(); // Cambiado a "login"
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
 
   void _login() async {
-    final email = _emailController.text;
+    final login = _loginController.text;
     final password = _passwordController.text;
 
-    if (email.isEmpty || password.isEmpty) {
+    if (login.isEmpty || password.isEmpty) {
       _showSnackbar('Por favor complete todos los campos');
       return;
     }
@@ -29,22 +29,24 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     try {
-      final response = await _authService.login(email, password);
+      // Llama al método login del AuthService
+      final bool isSuccess = await _authService.login(login, password);
+
       setState(() {
         _isLoading = false;
       });
 
-      if (response.statusCode == 200) {
+      if (isSuccess) {
         // Navegar a la pantalla de perfil si el login es exitoso
         Navigator.pushNamed(context, '/perfil');
       } else {
-        _showSnackbar('Login fallido: ${response.message}');
+        _showSnackbar('Credenciales inválidas');
       }
     } catch (e) {
       setState(() {
         _isLoading = false;
       });
-      _showSnackbar('Login fallido: $e');
+      _showSnackbar('Error al iniciar sesión: $e');
     }
   }
 
@@ -120,9 +122,9 @@ class _LoginPageState extends State<LoginPage> {
                       FadeInDown(
                         duration: Duration(milliseconds: 1400),
                         child: TextField(
-                          controller: _emailController,
+                          controller: _loginController,
                           decoration: InputDecoration(
-                            labelText: "Correo Electrónico",
+                            labelText: "Usuario",
                             labelStyle: TextStyle(color: Colors.grey),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
