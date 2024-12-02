@@ -6,50 +6,55 @@ import '../models/loginModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  Future<bool> login(String login, String password) async {
+   Future<bool> login(String login, String password) async {
     final url = Uri.parse('http://190.171.244.211:8080/wsVarios/wsAd.asmx');
-    final soapEnvelope = '''
+
+    // Cuerpo de la solicitud SOAP
+    final soapBody = '''
     <?xml version="1.0" encoding="utf-8"?>
-    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
       <soap:Body>
-        <tem:ValidarLoginPassword>
-          <tem:login>$login</tem:login>
-          <tem:password>$password</tem:password>
-        </tem:ValidarLoginPassword>
+        <ValidarLoginPassword xmlns="http://tempuri.org/">
+          <lsLogin>$login</lsLogin>
+          <lsPassword>$password</lsPassword>
+        </ValidarLoginPassword>
       </soap:Body>
     </soap:Envelope>
     ''';
 
+    // Configuración de encabezados
+    final headers = {
+      'Content-Type': 'text/xml; charset=utf-8',
+      'SOAPAction': 'http://tempuri.org/ValidarLoginPassword',
+    };
+
     try {
+      // Envío de la solicitud POST
       final response = await http.post(
         url,
-        headers: {
-          'Content-Type': 'text/xml; charset=utf-8',
-          'SOAPAction': 'http://tempuri.org/ValidarLoginPassword',
-        },
-        body: soapEnvelope,
+        headers: headers,
+        body: utf8.encode(soapBody),
       );
 
       if (response.statusCode == 200) {
-        // Parsear la respuesta SOAP
+        // Procesar la respuesta SOAP
         final responseBody = response.body;
         print("Respuesta del servidor: $responseBody");
 
-        // Extraer datos relevantes de la respuesta XML
+        // Extraer el resultado de ValidarLoginPassword
         if (responseBody.contains('<ValidarLoginPasswordResult>true</ValidarLoginPasswordResult>')) {
           return true; // Login exitoso
         } else {
-          return false; // Login fallido
+          return false; // Credenciales inválidas
         }
       } else {
-        print('Error en el servidor: ${response.statusCode}');
-        throw Exception('Error en el servidor');
+        print('Error en la solicitud: ${response.statusCode}');
+        return false;
       }
     } catch (e) {
-      print('Error durante la autenticación: $e');
-      throw Exception('Error en la autenticación');
+      print('Excepción durante el login: $e');
+      return false;
     }
-  
   }
 
   Future<void> saveUserData(Map<String, dynamic> userData) async {
