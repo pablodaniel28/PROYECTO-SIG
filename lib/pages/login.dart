@@ -10,7 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _loginController = TextEditingController(); // Cambiado a "login"
+  final TextEditingController _loginController =
+      TextEditingController(); // Cambiado a "login"
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
@@ -173,7 +174,9 @@ class _LoginPageState extends State<LoginPage> {
                                 ? CircularProgressIndicator(color: Colors.white)
                                 : Text(
                                     "Iniciar Sesión",
-                                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
                                   ),
                           ),
                         ),
