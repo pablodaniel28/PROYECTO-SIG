@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movil_system_si2/pages/corte.dart';
 import '../Services/asistenciaallService.dart';
 import '../components/appBar.dart';
 import '../components/barMenu.dart';
@@ -9,174 +10,87 @@ class AsistenciasPage extends StatefulWidget {
 }
 
 class _AsistenciasPageState extends State<AsistenciasPage> {
-  late Future<List<AsistenciaModel>> futureAsistencias;
-  String filtroEstado = ""; // Estado inicial
-
-  @override
-  void initState() {
-    super.initState();
-    futureAsistencias = AsistenciaService2().fetchGrupos();
-  }
-
-  @override
+  // Lista de rutas para el desplegable
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Asistencias'),
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            colors: [
-              Colors.blue.shade900,
-              Colors.blue.shade800,
-              Colors.lightBlue.shade400,
-            ],
-          ),
-        ),
+      appBar: AppBar(
+        title: Text("Opciones de Cortes"),
+        backgroundColor: Colors.blueAccent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: <Widget>[
-            SizedBox(height: 20),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Text(
-                "Reporte de Asistencias",
-                style: TextStyle(color: Colors.white, fontSize: 30),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Botón "Importar cortes desde el servidor"
+            ElevatedButton(
+              onPressed: () {
+                // Navegar a la sección de "Importar cortes" dentro de AsistenciasPage
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CortesPage(),
+                  ),
+                );
+              },
+              child: Text("Importar cortes desde el servidor"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 40),
               ),
             ),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      filtroEstado = "Presente"; // Mostrar presentes
-                    });
-                  },
-                  child: Text('Presentes'),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      filtroEstado = "Falta"; // Mostrar faltas
-                    });
-                  },
-                  child: Text('Faltas'),
-                ),
-                SizedBox(width: 10),
-              ],
+            // Botón "Registrar Cortes"
+            ElevatedButton(
+              onPressed: () {
+                // Lógica para registrar cortes
+              },
+              child: Text("Registrar Cortes"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+              ),
             ),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      filtroEstado = "Atraso"; // Mostrar retrasos
-                    });
-                  },
-                  child: Text('Retrasos'),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      filtroEstado = "virtual"; // Mostrar virtuales
-                    });
-                  },
-                  child: Text('Virtuales'),
-                ),
-              ],
+            // Botón "Exportar cortes al servidor"
+            ElevatedButton(
+              onPressed: () {
+                // Lógica para exportar cortes al servidor
+              },
+              child: Text("Exportar cortes al servidor"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+              ),
             ),
-            SizedBox(height: 20),
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(top: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: buildAsistenciasList(),
-                ),
+            SizedBox(height: 10),
+            // Botón "Lista de cortes realizados"
+            ElevatedButton(
+              onPressed: () {
+                // Lógica para mostrar la lista de cortes realizados
+              },
+              child: Text("Lista de cortes realizados"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 40),
+              ),
+            ),
+            SizedBox(height: 10),
+            // Botón "Salir"
+            ElevatedButton(
+              onPressed: () {
+                // Lógica para salir de la aplicación
+              },
+              child: Text("Salir"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 40),
               ),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 3),
-    );
-  }
-
-  Widget buildAsistenciasList() {
-    return FutureBuilder<List<AsistenciaModel>>(
-      future: futureAsistencias,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
-        } else if (!snapshot.hasData) {
-          return Center(child: Text('No hay datos'));
-        } else {
-          List<AsistenciaModel> asistencias = snapshot.data!;
-          // Filtrar asistencias según el estado
-          List<AsistenciaModel> filteredAsistencias = asistencias.where((asistencia) => asistencia.descripcion.contains(filtroEstado)).toList();
-          return ListView.builder(
-            itemCount: filteredAsistencias.length,
-            itemBuilder: (context, index) {
-              final asistencia = filteredAsistencias[index];
-              return Card(
-                color: Colors.blue[800],
-                elevation: 5,
-                margin: EdgeInsets.symmetric(vertical: 10),
-                child: ListTile(
-                  title: Text(
-                    asistencia.descripcion,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hora: ${asistencia.hora}',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                      Text(
-                        'Fecha: ${asistencia.fecha}',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                      Text(
-                        'Tiempo: ${asistencia.tiempo}',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                      Text(
-                        'Estado: ${asistencia.estado}',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                      // Text(
-                      //   'Latitud: ${asistencia.latitud}',
-                      //   style: TextStyle(color: Colors.white70),
-                      // ),
-                      // Text(
-                      //   'Longitud: ${asistencia.longitud}',
-                      //   style: TextStyle(color: Colors.white70),
-                      // ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
-        }
-      },
-    );
+     ),
+   );
   }
 }
