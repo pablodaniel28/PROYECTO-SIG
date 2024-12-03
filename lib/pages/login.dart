@@ -10,8 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _loginController =
-      TextEditingController(); // Cambiado a "login"
+  final TextEditingController _loginController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
@@ -78,6 +77,17 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: 100),
+
+              // Logo de la aplicación
+              FadeInDown(
+                duration: Duration(milliseconds: 800),
+                child: Image.asset(
+                  'assets/images/logo.png',  // Reemplaza con la ruta de tu logo
+                  width: 150,                  // Ajusta el tamaño según lo necesites
+                  height: 150,
+                ),
+              ),
+
               Padding(
                 padding: EdgeInsets.all(20),
                 child: Column(
@@ -145,17 +155,6 @@ class _LoginPageState extends State<LoginPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      FadeInDown(
-                        duration: Duration(milliseconds: 1600),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "¿Olvidaste tu contraseña?",
-                            style: TextStyle(color: Colors.blue),
                           ),
                         ),
                       ),
