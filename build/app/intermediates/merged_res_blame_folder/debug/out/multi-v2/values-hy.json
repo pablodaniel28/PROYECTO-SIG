@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.movil_system_si2.app-mergeDebugResources-11:/values-hy/values-hy.xml",
+            "outputFile": "com.example.movil_system_si2.app-mergeDebugResources-13:/values-hy/values-hy.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\c3f4174846aa9ec77168fb7890586a25\\transformed\\jetified-play-services-base-17.0.0\\res\\values-hy\\values.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\dc056d1cf6c2858cc038487ea1d537f0\\transformed\\jetified-play-services-base-17.0.0\\res\\values-hy\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\2579a7de00054bf46a8dbc332552f622\\transformed\\core-1.6.0\\res\\values-hy\\values-hy.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\284a410c767ad6c7a2b0ffc8d8d85981\\transformed\\core-1.6.0\\res\\values-hy\\values-hy.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\4cc01dec4d6903abcdb6ce2a21a6ba6c\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-hy\\values.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\311e1a3df675e87bce9eb256760ed271\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-hy\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

@@ -59,9 +59,9 @@ class AuthService {
             await saveUserData({
               'token': 'sampleToken',
               'refreshToken': 'sampleRefreshToken',
-              'expirationTime': '2025-01-01',
+              'expirationTime': '2024-01-01',
               'role': 'admin',
-              'name': 'Cortes',
+              'name': 'Juan Pérez',
               'login': login, // Guardamos el login
               'password': password, // Guardamos la password
               'id': 12345,

@@ -278,18 +278,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "sqflite",
-      "rootUri": "file:///C:/Users/pc/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite-2.3.3+1",
-      "packageUri": "lib/",
-      "languageVersion": "3.3"
-    },
-    {
-      "name": "sqflite_common",
-      "rootUri": "file:///C:/Users/pc/AppData/Local/Pub/Cache/hosted/pub.dev/sqflite_common-2.5.4",
-      "packageUri": "lib/",
-      "languageVersion": "3.3"
-    },
-    {
       "name": "stack_trace",
       "rootUri": "file:///C:/Users/pc/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
@@ -306,12 +294,6 @@
       "rootUri": "file:///C:/Users/pc/AppData/Local/Pub/Cache/hosted/pub.dev/string_scanner-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
-    },
-    {
-      "name": "synchronized",
-      "rootUri": "file:///C:/Users/pc/AppData/Local/Pub/Cache/hosted/pub.dev/synchronized-3.1.0+1",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "term_glyph",
@@ -368,7 +350,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-12-07T03:15:44.901263Z",
+  "generated": "2024-12-03T03:10:24.910542Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

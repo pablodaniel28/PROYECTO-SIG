@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.movil_system_si2.app-mergeDebugResources-11:/values-de/values-de.xml",
+            "outputFile": "com.example.movil_system_si2.app-mergeDebugResources-13:/values-de/values-de.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\c3f4174846aa9ec77168fb7890586a25\\transformed\\jetified-play-services-base-17.0.0\\res\\values-de\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,352,548,674,784,1021,1150,1297,1441,1680,1790,1990,2119,2340,2542,2639,2728",
-                        "endColumns": "106,195,125,109,236,128,146,143,238,109,199,128,220,201,96,88,104",
-                        "endOffsets": "351,547,673,783,1020,1149,1296,1440,1679,1789,1989,2118,2339,2541,2638,2727,2832"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,216,412,542,656,893,1026,1177,1529,1768,1882,2082,2215,2436,2642,2743,2836",
-                        "endColumns": "110,195,129,113,236,132,150,147,238,113,199,132,220,205,100,92,108",
-                        "endOffsets": "211,407,537,651,888,1021,1172,1320,1763,1877,2077,2210,2431,2637,2738,2831,2940"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\2579a7de00054bf46a8dbc332552f622\\transformed\\core-1.6.0\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\284a410c767ad6c7a2b0ffc8d8d85981\\transformed\\core-1.6.0\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\4cc01dec4d6903abcdb6ce2a21a6ba6c\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-de\\values.xml",
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\dc056d1cf6c2858cc038487ea1d537f0\\transformed\\jetified-play-services-base-17.0.0\\res\\values-de\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,352,548,674,784,1021,1150,1297,1441,1680,1790,1990,2119,2340,2542,2639,2728",
+                        "endColumns": "106,195,125,109,236,128,146,143,238,109,199,128,220,201,96,88,104",
+                        "endOffsets": "351,547,673,783,1020,1149,1296,1440,1679,1789,1989,2118,2339,2541,2638,2727,2832"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,216,412,542,656,893,1026,1177,1529,1768,1882,2082,2215,2436,2642,2743,2836",
+                        "endColumns": "110,195,129,113,236,132,150,147,238,113,199,132,220,205,100,92,108",
+                        "endOffsets": "211,407,537,651,888,1021,1172,1320,1763,1877,2077,2210,2431,2637,2738,2831,2940"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\danie\\.gradle\\caches\\transforms-3\\311e1a3df675e87bce9eb256760ed271\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-de\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

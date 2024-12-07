@@ -11,14 +11,16 @@ class BottomNavBar extends StatelessWidget {
         Navigator.pushNamed(context, '/perfil');
         break;
       case 1:
-        Navigator.pushNamed(context, '/lectura');
+        Navigator.pushNamed(context, '/marcarAsist');
         break;
-
+      // case 2:
+      //   Navigator.pushNamed(context, '/horarios');
+      //   break;
       case 2:
-        Navigator.pushNamed(context, '/MenuCortes');
+        Navigator.pushNamed(context, '/grupos');
         break;
       case 3:
-        Navigator.pushNamed(context, '/reconexion');
+        Navigator.pushNamed(context, '/asistencias');
         break;
     }
   }
@@ -39,17 +41,20 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.check_circle_outline),
-          label: 'Lectura',
+          label: 'Asistencia',
         ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.assignment),
-          label: 'Cortes',
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.schedule),
+        //   label: 'Horarios',
+        // ),
         BottomNavigationBarItem(
           icon: Icon(Icons.book),
-          label: 'Reconexion',
+          label: 'Programacion',
         ),
-       
+        BottomNavigationBarItem(
+          icon: Icon(Icons.assignment),
+          label: 'Registro',
+        ),
       ],
     );
   }
