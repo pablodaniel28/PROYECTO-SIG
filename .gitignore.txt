@@ -1,14 +1,24 @@
-# Flutter/Dart
+# Flutter build outputs
+/build/
 .dart_tool/
 .packages
-pubspec.lock
-/build/
-.flutter-plugins
-.flutter-plugins-dependencies
-
-# Flutter specific cache and configuration files
-/.dart_tool/package_config.json
-/.dart_tool/package_config_subset
-
-# Pub cache
 /.pub-cache/
+pubspec.lock
+
+# Android-specific files
+android/.gradle/
+android/gradle/
+android/app/build/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+
+# iOS-specific files
+ios/Flutter/Generated.xcconfig
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/Flutter/flutter_export_environment.sh
+
+# macOS-specific files
+macos/Flutter/ephemeral/
+macos/Flutter/ephemeral/flutter_export_environment.sh
