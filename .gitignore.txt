@@ -1,0 +1,14 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+pubspec.lock
+/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Flutter specific cache and configuration files
+/.dart_tool/package_config.json
+/.dart_tool/package_config_subset
+
+# Pub cache
+/.pub-cache/
