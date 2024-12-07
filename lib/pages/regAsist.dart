@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movil_system_si2/pages/corte.dart';
+import 'package:movil_system_si2/pages/registrarcorte.dart';
 import '../Services/asistenciaallService.dart';
 import '../components/appBar.dart';
 import '../components/barMenu.dart';
@@ -44,7 +45,11 @@ class _AsistenciasPageState extends State<AsistenciasPage> {
             // Botón "Registrar Cortes"
             ElevatedButton(
               onPressed: () {
-                // Lógica para registrar cortes
+                // Navegar a la vista "Registrar Cortes"
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegistrarCortesScreen()),
+                );
               },
               child: Text("Registrar Cortes"),
               style: ElevatedButton.styleFrom(

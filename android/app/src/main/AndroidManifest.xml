@@ -5,6 +5,11 @@
         android:label="movil_system_si2"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCPIyRlEFGVIpKQKqr-11flIS16F8EsgJc"/> 
+      
         <activity
             android:name=".MainActivity"
             android:exported="true"

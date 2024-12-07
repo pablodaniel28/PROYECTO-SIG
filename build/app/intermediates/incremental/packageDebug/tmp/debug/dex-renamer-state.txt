@@ -1,4 +1,4 @@
-#Tue Dec 03 00:46:08 BOT 2024
+#Sat Dec 07 12:26:06 BOT 2024
 base.0=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
