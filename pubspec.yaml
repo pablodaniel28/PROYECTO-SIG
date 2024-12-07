@@ -41,7 +41,8 @@ dependencies:
   http: ^1.2.1
   animate_do: ^3.3.4
   geolocator: ^8.0.0
-
+  sqflite: ^2.0.0+4
+  path: ^1.8.0
   # Dependencias adicionales
   # shared_preferences: ^2.0.9  # Para almacenamiento local
   xml: ^6.0.0  # Para manejar respuestas en formato XML

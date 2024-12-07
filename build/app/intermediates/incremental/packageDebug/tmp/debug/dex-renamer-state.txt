@@ -1,16 +1,4 @@
-#Mon Dec 02 22:45:34 BOT 2024
-base.0=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.4=C\:\\xampp\\htdocs\\PROYECTO-SIG\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-path.0=classes.dex
-path.1=0/classes.dex
-path.2=0/classes.dex
-path.3=15/classes.dex
-path.4=1/classes.dex
+#Sat Dec 07 15:29:57 BOT 2024
+base.0=D\:\\SIG\\movil_system_si2\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
-renamed.1=classes2.dex
-renamed.2=classes3.dex
-renamed.3=classes4.dex
-renamed.4=classes5.dex
+path.0=classes.dex
